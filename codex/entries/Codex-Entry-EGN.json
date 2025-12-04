@@ -1,0 +1,40 @@
+{
+  "codex_entry": {
+    "id": "CE-EGN-001",
+    "name": "Emotional Gravity Node",
+    "version": "1.0",
+    "purpose": "Model the gravitational pull between emotional signals as fields in Obviology. Emotional Gravity determines attraction, repulsion, and acceleration between two or more emotional states.",
+    "inputs": {
+      "intensity": "Magnitude of emotional charge (0-1)",
+      "clarity": "Signal clarity or coherence (0-1)",
+      "distance": "Perceived emotional distance between states (0-∞)"
+    },
+    "outputs": {
+      "force": "The pull or push between emotional nodes",
+      "direction": "Vector pointing toward/away from other emotional nodes",
+      "wellDepth": "Curvature depth representing stability or volatility",
+      "acceleration": "Rate of movement toward/away from emotional alignment"
+    },
+    "mathematics": {
+      "gravity_formula": "F = G_e * (I1 * I2 * C1 * C2) / distance^2",
+      "curvature_formula": "wellDepth = F * (1 - clarity)",
+      "acceleration_formula": "acc = F / emotional_mass"
+    },
+    "constants": {
+      "G_e": "0.87 (Emotional Gravitational Constant)",
+      "emotional_mass": "Derived from pattern stability and memory"
+    },
+    "engine": {
+      "file": "engines/emotional-logic/emotional-gravity.js",
+      "function": "computeEmotionalGravity"
+    },
+    "database": {
+      "file": "databases/emotional-nodes.json",
+      "collection": "egn_nodes"
+    },
+    "visualizer": {
+      "file": "visualizers/emotional-gravity-well/index.html",
+      "component": "gravity-well-3d"
+    }
+  }
+}

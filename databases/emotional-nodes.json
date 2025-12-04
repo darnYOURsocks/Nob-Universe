@@ -1,0 +1,20 @@
+{
+  "egn_nodes": [
+    {
+      "id": "EGN-001",
+      "position": { "x": 0, "y": 0, "z": 0 },
+      "intensity": 0.8,
+      "clarity": 0.6,
+      "stability": 0.4,
+      "connections": []
+    },
+    {
+      "id": "EGN-002",
+      "position": { "x": 1.5, "y": 0.5, "z": -0.5 },
+      "intensity": 0.7,
+      "clarity": 0.55,
+      "stability": 0.6,
+      "connections": []
+    }
+  ]
+}
