@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ripple Radar – Pressure Node</title>
+    <style>
+        body { background:#0d0d0f; color:#eee; font-family:Arial,Helvetica,sans-serif; text-align:center; }
+        canvas { background:#111; border:1px solid #555; margin-top:20px; }
+        .info { margin-top:12px; font-size:14px; color:#cfcfcf; }
+    </style>
+</head>
+<body>
+    <h1>Ripple Pressure Radar</h1>
+    <canvas id="radar" width="400" height="400"></canvas>
+    <div class="info">Latest: <span id="latest">—</span></div>
+
+    <script type="module">
+        import { computeRipplePressure } from "../../engines/ripple-sonar/ripple-pressure.js";
+
+        const canvas = document.getElementById("radar");
+        const ctx = canvas.getContext("2d");
+        const latestEl = document.getElementById('latest');
+
+        function drawRadar(pressure, stability, prediction) {
+            ctx.clearRect(0,0,400,400);
+
+            // Center
+            const cx = 200, cy = 200;
+
+            // Outer ring
+            ctx.beginPath();
+            ctx.arc(cx, cy, 150, 0, Math.PI * 2);
+            ctx.strokeStyle = "#555";
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Pressure arc (mapped to 0–1 range roughly)
+            const pNorm = Math.tanh(pressure / 3); // soft normalization
+            ctx.beginPath();
+            ctx.strokeStyle = "#ff4545";
+            ctx.lineWidth = 6;
+            ctx.arc(
+                cx, cy, 130,
+                -Math.PI/2,
+                -Math.PI/2 + (Math.min(pNorm, 1) * Math.PI * 1.5)
+            );
+            ctx.stroke();
+
+            // Stability ring (inverse)
+            ctx.beginPath();
+            ctx.strokeStyle = "#45d3ff";
+            ctx.lineWidth = 4;
+            ctx.arc(cx, cy, 100, 0, Math.PI * 2 * stability);
+            ctx.stroke();
+
+            // Prediction dot
+            const angle = prediction * Math.PI * 2 - Math.PI/2;
+            const dotX = cx + Math.cos(angle) * 80;
+            const dotY = cy + Math.sin(angle) * 80;
+
+            ctx.beginPath();
+            ctx.arc(dotX, dotY, 6, 0, Math.PI * 2);
+            ctx.fillStyle = "#ffdd45";
+            ctx.fill();
+
+            // Text
+            ctx.fillStyle = '#ddd';
+            ctx.font = '14px Arial';
+            ctx.fillText('Pressure: ' + pressure.toFixed(3), 10, 20);
+            ctx.fillText('Stability: ' + stability.toFixed(3), 10, 40);
+            ctx.fillText('Prediction: ' + prediction.toFixed(3), 10, 60);
+        }
+
+        async function update() {
+            try {
+                const res = await fetch('../../databases/rfc-db.json', {cache: 'no-store'});
+                const db = await res.json();
+                const latest = db.pressure_nodes && db.pressure_nodes.length ? db.pressure_nodes.at(-1).output : null;
+
+                if (!latest) {
+                    latestEl.textContent = 'no data';
+                    drawRadar(0, 1, 0);
+                    return;
+                }
+
+                latestEl.textContent = new Date(latest.timestamp).toLocaleString();
+                drawRadar(latest.pressure, latest.stability, latest.prediction);
+            } catch (e) {
+                console.warn('Could not read DB', e);
+                latestEl.textContent = 'error';
+                drawRadar(0, 1, 0);
+            }
+        }
+
+        setInterval(update, 500);
+        update();
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ripple Radar - ŊOB Universe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #00ff00;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0a 100%);
+        }
+
+        .radar-container {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border: 2px solid #00ff00;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.05), rgba(0, 0, 0, 0.8));
+            box-shadow: 0 0 40px rgba(0, 255, 0, 0.3), inset 0 0 40px rgba(0, 255, 0, 0.05);
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .center-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #00ff00;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00;
+            z-index: 10;
+        }
+
+        .ui-panel {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #00ff00;
+            padding: 20px;
+            border-radius: 8px;
+            min-width: 250px;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+        }
+
+        .ui-panel h3 {
+            color: #00ff00;
+            margin-bottom: 15px;
+            font-size: 16px;
+            border-bottom: 1px solid #00ff00;
+            padding-bottom: 10px;
+        }
+
+        .stat-line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .stat-label {
+            color: #00aa00;
+        }
+
+        .stat-value {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .ripple-list {
+            margin-top: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .ripple-item {
+            background: rgba(0, 255, 0, 0.1);
+            padding: 8px;
+            margin-bottom: 5px;
+            border-left: 3px solid #00ff00;
+            font-size: 11px;
+            border-radius: 2px;
+        }
+
+        .ripple-item-type {
+            color: #00ff00;
+            font-weight: bold;
+        }
+
+        .ripple-item-freq {
+            color: #00aa00;
+        }
+
+        .controls {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #00ff00;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+        }
+
+        button {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 8px;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: rgba(0, 255, 0, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+        }
+
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="radar-container">
+            <canvas id="radarCanvas"></canvas>
+            <div class="center-dot"></div>
+        </div>
+
+        <div class="ui-panel">
+            <h3>⟡ RIPPLE SONAR</h3>
+            <div class="stat-line">
+                <span class="stat-label">Status:</span>
+                <span class="stat-value" id="status">ACTIVE</span>
+            </div>
+            <div class="stat-line">
+                <span class="stat-label">Ripples:</span>
+                <span class="stat-value" id="rippleCount">0</span>
+            </div>
+            <div class="stat-line">
+                <span class="stat-label">Avg Intensity:</span>
+                <span class="stat-value" id="avgIntensity">0%</span>
+            </div>
+            <div class="stat-line">
+                <span class="stat-label">System Coherence:</span>
+                <span class="stat-value" id="coherence">87.3%</span>
+            </div>
+
+            <div class="ripple-list" id="rippleList"></div>
+        </div>
+
+        <div class="controls">
+            <button onclick="toggleScan()">Start Scan</button>
+            <button onclick="clearRipples()">Clear Display</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('radarCanvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = 600;
+        canvas.height = 600;
+
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const radius = 280;
+
+        let ripples = [];
+        let isScanning = false;
+        let scanAngle = 0;
+
+        function drawRadarBackground() {
+            // Clear
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Concentric circles
+            ctx.strokeStyle = 'rgba(0, 255, 0, 0.2)';
+            ctx.lineWidth = 1;
+            for (let i = 1; i <= 4; i++) {
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, (radius / 4) * i, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+
+            // Grid lines
+            ctx.strokeStyle = 'rgba(0, 255, 0, 0.1)';
+            for (let angle = 0; angle < Math.PI * 2; angle += Math.PI / 8) {
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.lineTo(
+                    centerX + Math.cos(angle) * radius,
+                    centerY + Math.sin(angle) * radius
+                );
+                ctx.stroke();
+            }
+        }
+
+        function drawScanLine() {
+            ctx.strokeStyle = 'rgba(0, 255, 0, 0.6)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.lineTo(
+                centerX + Math.cos(scanAngle) * radius,
+                centerY + Math.sin(scanAngle) * radius
+            );
+            ctx.stroke();
+
+            // Glow effect
+            ctx.strokeStyle = 'rgba(0, 255, 0, 0.2)';
+            ctx.lineWidth = 30;
+            ctx.beginPath();
+            ctx.moveTo(centerX, centerY);
+            ctx.lineTo(
+                centerX + Math.cos(scanAngle) * radius,
+                centerY + Math.sin(scanAngle) * radius
+            );
+            ctx.stroke();
+        }
+
+        function drawRipples() {
+            ripples.forEach((ripple, idx) => {
+                const dist = (ripple.distance / 100) * radius;
+                const x = centerX + Math.cos(ripple.angle) * dist;
+                const y = centerY + Math.sin(ripple.angle) * dist;
+
+                // Ripple point
+                const intensity = ripple.intensity / 100;
+                ctx.fillStyle = `rgba(0, 255, 0, ${intensity})`;
+                ctx.shadowColor = `rgba(0, 255, 0, ${intensity})`;
+                ctx.shadowBlur = 15;
+                ctx.beginPath();
+                ctx.arc(x, y, 6 + (ripple.intensity / 100) * 4, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Ripple rings
+                ctx.strokeStyle = `rgba(0, 255, 0, ${intensity * 0.5})`;
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.arc(x, y, 12, 0, Math.PI * 2);
+                ctx.stroke();
+            });
+            ctx.shadowColor = 'transparent';
+        }
+
+        function animate() {
+            drawRadarBackground();
+            
+            if (isScanning) {
+                drawScanLine();
+                scanAngle += 0.05;
+                if (scanAngle > Math.PI * 2) scanAngle = 0;
+
+                // Randomly generate ripples during scan
+                if (Math.random() > 0.7) {
+                    ripples.push({
+                        angle: scanAngle + (Math.random() - 0.5) * 0.5,
+                        distance: Math.random() * 100,
+                        intensity: 50 + Math.random() * 50,
+                        age: 0
+                    });
+                }
+            }
+
+            // Age ripples
+            ripples = ripples.filter(r => {
+                r.age++;
+                r.intensity *= 0.98;
+                return r.intensity > 5;
+            });
+
+            drawRipples();
+
+            // Update UI
+            document.getElementById('rippleCount').textContent = ripples.length;
+            const avgIntensity = ripples.length > 0 
+                ? Math.round(ripples.reduce((sum, r) => sum + r.intensity, 0) / ripples.length)
+                : 0;
+            document.getElementById('avgIntensity').textContent = avgIntensity + '%';
+
+            updateRippleList();
+
+            requestAnimationFrame(animate);
+        }
+
+        function updateRippleList() {
+            const list = document.getElementById('rippleList');
+            const topRipples = ripples.slice(0, 5);
+            
+            list.innerHTML = topRipples.map((r, i) => `
+                <div class="ripple-item">
+                    <span class="ripple-item-type">◆ Ripple ${i + 1}</span><br>
+                    <span class="ripple-item-freq">Freq: ${(100 + r.distance * 5).toFixed(0)} Hz</span>
+                    Intensity: ${r.intensity.toFixed(0)}%
+                </div>
+            `).join('');
+        }
+
+        window.toggleScan = function() {
+            isScanning = !isScanning;
+            document.querySelector('button').textContent = isScanning ? 'Stop Scan' : 'Start Scan';
+        };
+
+        window.clearRipples = function() {
+            ripples = [];
+        };
+
+        animate();
+    </script>
+</body>
+</html>

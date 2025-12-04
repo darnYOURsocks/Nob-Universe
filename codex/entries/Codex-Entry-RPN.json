@@ -1,0 +1,30 @@
+{
+  "codex_entry": {
+    "id": "CE-RPN-001",
+    "name": "Ripple Pressure Node",
+    "version": "1.0",
+    "purpose": "Compute local ripple pressure based on amplitude, entropy, and temporal curvature. Used in Ripple Sonar, TPS prediction, and Emotional Logic modules.",
+    "inputs": {
+      "A": "signal amplitude (0–1)",
+      "S": "signal entropy (0–1)",
+      "dt": "time delta in seconds (must be > 0)"
+    },
+    "outputs": {
+      "pressure": "numeric pressure score",
+      "stability": "reversibility indicator",
+      "prediction": "0–1 probability of ripple spike"
+    },
+    "engine": {
+      "file": "engines/ripple-sonar/ripple-pressure.js",
+      "function": "computeRipplePressure"
+    },
+    "database": {
+      "file": "databases/rfc-db.json",
+      "collection": "pressure_nodes"
+    },
+    "visualizer": {
+      "file": "visualizers/ripple-radar/index.html",
+      "component": "pressure-arc"
+    }
+  }
+}

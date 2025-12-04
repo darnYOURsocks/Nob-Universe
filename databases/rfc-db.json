@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "database": "rfc-db",
+    "version": "1.0",
+    "created": "2025-12-04",
+    "description": "Reference Frame Configuration database"
+  },
+  
+  "reference_frames": [
+    {
+      "id": "rf-001",
+      "name": "Harmonic Reference Frame",
+      "type": "frequency-based",
+      "origin": [0, 0, 0],
+      "orientation": "xyz",
+      "scale_factor": 1.0,
+      "calibration": "2025-12-04",
+      "active": true
+    },
+    {
+      "id": "rf-002",
+      "name": "Emotional State Reference Frame",
+      "type": "affective-based",
+      "dimensions": ["valence", "arousal", "resonance"],
+      "center": [0.5, 0.5, 0.5],
+      "scale_factor": 1.0,
+      "calibration": "2025-12-04",
+      "active": true
+    },
+    {
+      "id": "rf-003",
+      "name": "Pattern Frequency Reference Frame",
+      "type": "frequency-based",
+      "frequency_range": "20-20000 Hz",
+      "resolution": "1 Hz",
+      "calibration": "2025-12-04",
+      "active": true
+    }
+  ],
+  
+  "transformations": [
+    {
+      "from": "rf-001",
+      "to": "rf-002",
+      "type": "harmonic-to-emotional",
+      "matrix": [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+    }
+  ]
+
+  ,
+  "pressure_nodes": [
+    {
+      "id": "RPN-001",
+      "input": {
+        "A": 0.8,
+        "S": 0.4,
+        "dt": 0.2
+      },
+      "output": {
+        "pressure": 1.31988469702041,
+        "stability": 0.4302019274085317,
+        "prediction": 0.131988469702041,
+        "timestamp": "2025-12-04T15:00:00Z"
+      }
+    }
+  ]
+}
