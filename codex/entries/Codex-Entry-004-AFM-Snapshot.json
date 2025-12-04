@@ -1,0 +1,28 @@
+{
+  "entry_id": "004",
+  "title": "Attractor Field Mapping Snapshot",
+  "category": "analysis",
+  "created": "2025-12-04",
+  "last_updated": "2025-12-04",
+  "author": "ŊOB Universe",
+  "version": "1.0",
+
+  "abstract": "Captured current AFM field state showing attractor count, field strength, and stability of the map.",
+
+  "results": {
+    "source": "Attractor Field Mapping (AFM) engine",
+    "totalAttractors": 4,
+    "fieldStrength": 1.2,
+    "bifurcationCount": 0,
+    "trajectoryPreview": "[...]"
+  },
+
+  "connections": {
+    "engines": ["afm"],
+    "visualizers": ["harmonic-system-v3", "curvature-engine"],
+    "databases": ["rfc_db"]
+  },
+
+  "status": "active",
+  "tags": ["afm", "attractor", "field", "snapshot"]
+}
