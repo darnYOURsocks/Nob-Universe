@@ -27,6 +27,13 @@
           "file": "entries/Codex-Entry-003-Emotional-Logic-Core.json",
           "category": "logic",
           "status": "active"
+        },
+        {
+          "id": "004",
+          "title": "Attractor Field Mapping Snapshot",
+          "file": "entries/Codex-Entry-004-AFM-Snapshot.json",
+          "category": "analysis",
+          "status": "active"
         }
       ]
     },
