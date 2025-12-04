@@ -1,0 +1,65 @@
+{
+  "entry_id": "002",
+  "title": "RippleSense Engine",
+  "category": "engine",
+  "created": "2025-12-04",
+  "last_updated": "2025-12-04",
+  "author": "ŊOB Universe",
+  "version": "1.0",
+  
+  "abstract": "RippleSense is the core sensory engine for detecting, interpreting, and responding to ripple patterns across all domains. It functions as the perception layer of the ŊOB universe.",
+  
+  "specification": {
+    "function": "Detect and classify ripple patterns in real-time",
+    "inputs": [
+      "Domain state data",
+      "Pattern frequency signals",
+      "Harmonic wave data"
+    ],
+    "outputs": [
+      "Ripple classification",
+      "Intensity measurements",
+      "Harmonic resonance index",
+      "Pattern prediction"
+    ],
+    "performance": {
+      "latency_ms": 50,
+      "accuracy_percent": 94.5,
+      "sampling_rate_hz": 1000
+    }
+  },
+  
+  "algorithm": {
+    "steps": [
+      "Input signal normalization",
+      "Frequency decomposition (FFT)",
+      "Pattern template matching",
+      "Harmonic resonance calculation",
+      "Classification decision",
+      "Output prediction"
+    ],
+    "confidence_threshold": 0.85
+  },
+  
+  "interfaces": {
+    "javascript": "engines/ripple-sonar/ripple-sonar-core.js",
+    "python_binding": "Available via ctypes",
+    "unity_integration": "ripple-physics/RipplePhysics.cs",
+    "unreal_integration": "emotional-physics/EmotionalFieldComponent.h"
+  },
+  
+  "calibration": {
+    "sensitivity": "adjustable",
+    "range_meters": 1000,
+    "frequency_range_hz": "20-20000"
+  },
+  
+  "connections": {
+    "related_entries": ["Big Splash", "Emotional Logic Core"],
+    "engines": ["emotional-logic", "afm"],
+    "visualizers": ["ripple-radar", "harmonic-system-v3"]
+  },
+  
+  "status": "active",
+  "tags": ["sensor", "ripple", "detection", "real-time"]
+}

@@ -1,0 +1,164 @@
+{
+  "codex": {
+    "version": "1.0",
+    "lastUpdated": "2025-12-04",
+    "author": "ŊOB Universe System",
+    "description": "Master index for all Codex entries, databases, engines, and visualizers",
+    
+    "entries": {
+      "core": [
+        {
+          "id": "001",
+          "title": "Big Splash",
+          "file": "entries/Codex-Entry-001-Big-Splash.json",
+          "category": "theory",
+          "status": "active"
+        },
+        {
+          "id": "002",
+          "title": "RippleSense Engine",
+          "file": "entries/Codex-Entry-002-RippleSense-Engine.json",
+          "category": "engine",
+          "status": "active"
+        },
+        {
+          "id": "003",
+          "title": "Emotional Logic Core",
+          "file": "entries/Codex-Entry-003-Emotional-Logic-Core.json",
+          "category": "logic",
+          "status": "active"
+        }
+      ]
+    },
+    
+    "databases": {
+      "nob_nodes": {
+        "file": "databases/nob-nodes.json",
+        "description": "NOB node reference database",
+        "recordCount": 0
+      },
+      "tps_db": {
+        "file": "databases/tps-db.json",
+        "description": "Tri-Pattern-Success framework data",
+        "recordCount": 0
+      },
+      "rfc_db": {
+        "file": "databases/rfc-db.json",
+        "description": "Reference frame configurations",
+        "recordCount": 0
+      },
+      "krj": {
+        "file": "databases/krj.json",
+        "description": "Key-relationship-judgment database",
+        "recordCount": 0
+      },
+      "ekeda": {
+        "file": "databases/ekeda.json",
+        "description": "Extended knowledge encoding database",
+        "recordCount": 0
+      }
+    },
+    
+    "engines": {
+      "nob_translator": {
+        "file": "engines/nob-translator/translator-core.js",
+        "type": "javascript",
+        "description": "n(z) cross-domain translation engine",
+        "status": "ready"
+      },
+      "ripple_sonar": {
+        "file": "engines/ripple-sonar/ripple-sonar-core.js",
+        "type": "javascript",
+        "description": "Ripple wave detection and analysis",
+        "status": "ready"
+      },
+      "afm": {
+        "file": "engines/afm/afm-core.js",
+        "type": "javascript",
+        "description": "Attractor Field Mapping",
+        "status": "ready"
+      },
+      "emotional_logic": {
+        "file": "engines/emotional-logic/emotional-logic-engine.js",
+        "type": "javascript",
+        "description": "Emotional reasoning and inference",
+        "status": "ready"
+      },
+      "tps_engine": {
+        "file": "engines/tps/tps-engine.js",
+        "type": "javascript",
+        "description": "Tri-Pattern-Success framework",
+        "status": "ready"
+      }
+    },
+    
+    "visualizers": [
+      {
+        "name": "Harmonic System V3",
+        "file": "visualizers/harmonic-system-v3/index.html",
+        "description": "Full harmonic system visualization",
+        "tech": "HTML/Canvas"
+      },
+      {
+        "name": "Curvature Engine",
+        "file": "visualizers/curvature-engine/index.html",
+        "description": "Curvature and topology mapping",
+        "tech": "HTML/SVG"
+      },
+      {
+        "name": "Ripple Radar",
+        "file": "visualizers/ripple-radar/index.html",
+        "description": "Real-time ripple detection UI",
+        "tech": "HTML/Canvas"
+      },
+      {
+        "name": "aiLICHEN Hologram",
+        "file": "visualizers/aiLICHEN-hologram/hologram.html",
+        "description": "Holographic symbolic interface",
+        "tech": "HTML/WebGL"
+      },
+      {
+        "name": "4-Face Simulator",
+        "file": "visualizers/4face-simulator/simulator.html",
+        "description": "4-face pattern simulation",
+        "tech": "HTML/Canvas"
+      }
+    ],
+    
+    "python_apps": [
+      {
+        "name": "Dash Solar Estate",
+        "file": "python/dash-solar-estate/app.py",
+        "type": "dashboard",
+        "dependencies": ["dash", "plotly"]
+      },
+      {
+        "name": "Pattern Incubator",
+        "file": "python/pattern-incubator/incubator-core.py",
+        "type": "ml-training",
+        "dependencies": ["numpy", "tensorflow"]
+      },
+      {
+        "name": "Ripple Lab",
+        "file": "python/ripple-lab/ripple-lab.py",
+        "type": "analysis",
+        "dependencies": ["numpy", "scipy"]
+      }
+    ],
+    
+    "system": {
+      "version": "1.0",
+      "versionHistory": [
+        {
+          "version": "1.0",
+          "date": "2025-12-04",
+          "changes": "Initial release with core engines and visualizers"
+        }
+      ],
+      "growth_mode": "automatic",
+      "ai_integration": true,
+      "cloud_ready": true,
+      "offline_capable": true
+    }
+  }
+}

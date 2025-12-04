@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emotional Gravity Well</title>
+  <style>
+    body { margin:0; overflow:hidden; background:#0d0d0f; }
+    #info { position:absolute; top:10px; left:10px; color:#fff; padding:5px 10px; background:#2228; border-radius:4px; font-family:Arial; }
+  </style>
+</head>
+<body>
+  <div id="info">Emotional Gravity Well Simulation</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script type="module">
+    import { computeEmotionalGravity } from "../../engines/emotional-logic/emotional-gravity.js";
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({antialias:true});
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+    camera.position.set(0, 5, 10);
+
+    const db = await fetch("../../databases/emotional-nodes.json").then(r => r.json());
+    const nodes = db.egn_nodes;
+
+    const sphereGeo = new THREE.SphereGeometry(0.25, 32, 32);
+
+    const objects = nodes.map(n => {
+      const mat = new THREE.MeshStandardMaterial({ color: 0xff6666 });
+      const mesh = new THREE.Mesh(sphereGeo, mat);
+      mesh.position.set(n.position.x, n.position.y, n.position.z);
+      mesh.userData = n;
+      scene.add(mesh);
+      return mesh;
+    });
+
+    // lights
+    const hemi = new THREE.HemisphereLight(0xffffff, 0x222222, 0.8);
+    scene.add(hemi);
+    const dir = new THREE.DirectionalLight(0xffffff, 0.6);
+    dir.position.set(5,10,7);
+    scene.add(dir);
+
+    // gravity plane (heightfield)
+    const planeGeo = new THREE.PlaneGeometry(10, 10, 64, 64);
+    planeGeo.rotateX(-Math.PI/2);
+    const planeMat = new THREE.MeshStandardMaterial({ color:0x223366, wireframe:false, side:THREE.DoubleSide, transparent:true, opacity:0.85 });
+    const plane = new THREE.Mesh(planeGeo, planeMat);
+    scene.add(plane);
+
+    function animateWell() {
+      const A = objects[0].userData;
+      const B = objects[1].userData;
+
+      const gravity = computeEmotionalGravity(A, B);
+      const depth = gravity.wellDepth;
+
+      const pos = plane.geometry.attributes.position;
+      for (let i = 0; i < pos.count; i++) {
+        const x = pos.getX(i);
+        const z = pos.getZ(i);
+        // simple radial well centered between nodes
+        const cx = (A.position.x + B.position.x) / 2;
+        const cz = (A.position.z + B.position.z) / 2;
+        const dist = Math.hypot(x - cx, z - cz) + 0.001;
+        const y = -Math.exp(-dist*1.2) * depth * 3;
+        pos.setY(i, y);
+      }
+      pos.needsUpdate = true;
+      plane.geometry.computeVertexNormals();
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      animateWell();
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    window.addEventListener('resize', ()=>{
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>

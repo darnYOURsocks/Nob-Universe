@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "database": "tps-db",
+    "version": "1.0",
+    "created": "2025-12-04",
+    "description": "Tri-Pattern-Success (TPS) framework configuration and state data"
+  },
+  
+  "tps_framework": {
+    "pattern_1": {
+      "name": "Recognition Pattern",
+      "description": "Pattern identification and classification",
+      "active": true,
+      "weight": 0.33,
+      "success_rate": 0.92,
+      "metrics": {
+        "detection_latency_ms": 45,
+        "false_positive_rate": 0.08,
+        "true_positive_rate": 0.92
+      }
+    },
+    
+    "pattern_2": {
+      "name": "Integration Pattern",
+      "description": "Harmonic alignment and synthesis",
+      "active": true,
+      "weight": 0.33,
+      "success_rate": 0.87,
+      "metrics": {
+        "alignment_score": 0.87,
+        "coherence_index": 0.85,
+        "resonance_factor": 0.89
+      }
+    },
+    
+    "pattern_3": {
+      "name": "Propagation Pattern",
+      "description": "Ripple emission and field expansion",
+      "active": true,
+      "weight": 0.34,
+      "success_rate": 0.90,
+      "metrics": {
+        "expansion_rate": 1.25,
+        "decay_factor": 0.98,
+        "harmonic_penetration": 0.91
+      }
+    }
+  },
+  
+  "success_conditions": {
+    "all_three_active": true,
+    "combined_success_rate": 0.896,
+    "system_coherence": 0.871,
+    "operational_status": "optimal"
+  },
+  
+  "history": [
+    {
+      "timestamp": "2025-12-04T00:00:00Z",
+      "event": "System initialization",
+      "status": "active"
+    }
+  ]
+}

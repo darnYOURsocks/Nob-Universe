@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "database": "krj",
+    "version": "1.0",
+    "created": "2025-12-04",
+    "description": "Key-Relationship-Judgment database for semantic relationships"
+  },
+  
+  "judgments": [
+    {
+      "id": "krj-001",
+      "key": "ripple",
+      "related_concept": "propagation",
+      "relationship_type": "causal",
+      "confidence": 0.95,
+      "weight": 1.0
+    },
+    {
+      "id": "krj-002",
+      "key": "emotion",
+      "related_concept": "pattern",
+      "relationship_type": "interpretive",
+      "confidence": 0.87,
+      "weight": 0.85
+    },
+    {
+      "id": "krj-003",
+      "key": "harmony",
+      "related_concept": "coherence",
+      "relationship_type": "synonymous",
+      "confidence": 0.92,
+      "weight": 0.95
+    }
+  ],
+  
+  "relationship_types": [
+    "causal",
+    "correlative",
+    "synonymous",
+    "antonymous",
+    "hierarchical",
+    "interpretive"
+  ]
+}

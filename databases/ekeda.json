@@ -1,0 +1,44 @@
+{
+  "metadata": {
+    "database": "ekeda",
+    "version": "1.0",
+    "created": "2025-12-04",
+    "description": "Extended Knowledge Encoding Database for complex semantic structures"
+  },
+  
+  "knowledge_blocks": [
+    {
+      "id": "ekeda-001",
+      "title": "Ripple Propagation Law",
+      "content": "Ripples propagate outward from an origin point, diminishing in intensity with distance and time",
+      "encoding": {
+        "mathematical": "P(r,t) = A * e^(-kt) * cos(ωt - kr)",
+        "semantic": "energy-distance-time-inverse-relationship",
+        "emotional": "expansion-with-dissipation"
+      },
+      "confidence": 0.95
+    },
+    {
+      "id": "ekeda-002",
+      "title": "Harmonic Alignment Principle",
+      "content": "Systems achieve coherence when their frequencies align and resonate",
+      "encoding": {
+        "mathematical": "Coherence = sin(Δφ) where Δφ is phase difference",
+        "semantic": "frequency-alignment-produces-reinforcement",
+        "emotional": "resonance-produces-harmony"
+      },
+      "confidence": 0.91
+    },
+    {
+      "id": "ekeda-003",
+      "title": "Pattern as Information",
+      "content": "Recurring structures carry meaning and can be translated across domains",
+      "encoding": {
+        "mathematical": "Pattern ∈ Information Space",
+        "semantic": "structure-meaning-translation",
+        "emotional": "recognition-understanding-communication"
+      },
+      "confidence": 0.88
+    }
+  ]
+}

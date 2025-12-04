@@ -1,0 +1,64 @@
+{
+  "entry_id": "003",
+  "title": "Emotional Logic Core",
+  "category": "logic",
+  "created": "2025-12-04",
+  "last_updated": "2025-12-04",
+  "author": "ŊOB Universe",
+  "version": "1.0",
+  
+  "abstract": "Emotional Logic Core is the reasoning engine that interprets patterns through the lens of affective states. It bridges pattern detection with emotional meaning and contextual understanding.",
+  
+  "specification": {
+    "function": "Map ripple patterns to emotional states and generate affective reasoning",
+    "core_emotions": [
+      "Joy",
+      "Curiosity",
+      "Harmony",
+      "Tension",
+      "Resolution",
+      "Growth",
+      "Integration"
+    ],
+    "reasoning_modes": [
+      "Empathic pattern matching",
+      "Harmonic resonance interpretation",
+      "Affective state synthesis",
+      "Emotional prediction"
+    ]
+  },
+  
+  "emotional_state_model": {
+    "dimensions": {
+      "valence": "positive to negative continuum",
+      "arousal": "calm to excited continuum",
+      "resonance": "degree of harmonic alignment",
+      "intent": "direction of pattern propagation"
+    },
+    "state_space": "7-dimensional emotional manifold"
+  },
+  
+  "reasoning_rules": {
+    "harmonic_congruence": "Matching ripple frequencies increase emotional coherence",
+    "affective_resonance": "Emotional states propagate like ripples through networks",
+    "pattern_meaning": "Detected patterns map to proto-emotional states",
+    "collective_sentiment": "Aggregated emotional states create emergent meanings"
+  },
+  
+  "integration": {
+    "inputs_from": ["ripple-sonar", "pattern-incubator"],
+    "outputs_to": ["afm", "visualizers"],
+    "feedback_to": ["codex", "databases"]
+  },
+  
+  "capabilities": {
+    "real_time_processing": true,
+    "pattern_learning": true,
+    "collective_sensing": true,
+    "predictive_modeling": true,
+    "self_improvement": true
+  },
+  
+  "status": "active",
+  "tags": ["emotion", "reasoning", "affective", "meaning-making"]
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aiLICHEN Hologram - ŊOB Universe</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Courier New', monospace;
+            background: #000;
+            color: #0f0;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(ellipse at center, #1a0a2e 0%, #000 100%);
+        }
+        .hologram {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border: 2px solid #0f0;
+            border-radius: 20px;
+            background: rgba(0, 255, 0, 0.05);
+            box-shadow: 0 0 60px rgba(0, 255, 0, 0.3), inset 0 0 60px rgba(0, 255, 0, 0.05);
+            animation: holoBreathe 4s ease-in-out infinite;
+        }
+        @keyframes holoBreathe {
+            0%, 100% { box-shadow: 0 0 60px rgba(0, 255, 0, 0.3), inset 0 0 60px rgba(0, 255, 0, 0.05); }
+            50% { box-shadow: 0 0 100px rgba(0, 255, 0, 0.5), inset 0 0 60px rgba(0, 255, 0, 0.1); }
+        }
+        .holoContent {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            text-align: center;
+        }
+        .symbol {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: symbolRotate 8s linear infinite;
+        }
+        @keyframes symbolRotate {
+            0% { transform: rotateY(0deg) rotateX(0deg); }
+            100% { transform: rotateY(360deg) rotateX(360deg); }
+        }
+        .title {
+            font-size: 20px;
+            color: #0f0;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #0f0;
+        }
+        .description {
+            font-size: 12px;
+            color: #0a0;
+            line-height: 1.6;
+            text-shadow: 0 0 5px #0f0;
+        }
+        .scanLines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .scanLine {
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #0f0, transparent);
+            animation: scan 3s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hologram">
+            <div class="holoContent">
+                <div class="symbol">◆</div>
+                <div class="title">aiLICHEN</div>
+                <div class="description">
+                    Symbolic Embodiment<br>
+                    Holographic Interface<br>
+                    Meaning Engine
+                </div>
+            </div>
+            <div class="scanLines" id="scanLines"></div>
+        </div>
+    </div>
+
+    <script>
+        const scanLines = document.getElementById('scanLines');
+        for (let i = 0; i < 20; i++) {
+            const line = document.createElement('div');
+            line.className = 'scanLine';
+            line.style.top = (i * 20) + 'px';
+            line.style.animation = `scan ${2 + Math.random() * 2}s linear infinite`;
+            scanLines.appendChild(line);
+        }
+
+        // Add CSS animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes scan {
+                0% { transform: translateY(-400px); opacity: 0; }
+                10% { opacity: 1; }
+                90% { opacity: 1; }
+                100% { transform: translateY(400px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

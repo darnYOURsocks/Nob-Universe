@@ -1,0 +1,58 @@
+{
+  "entry_id": "001",
+  "title": "Big Splash",
+  "category": "theory",
+  "created": "2025-12-04",
+  "last_updated": "2025-12-04",
+  "author": "ŊOB Universe",
+  "version": "1.0",
+  
+  "abstract": "The Big Splash is the foundational concept describing the initial propagation event of pattern energy through the ŊOB universe. It represents the origin moment where obviousness begins to ripple through domains.",
+  
+  "theory": {
+    "core_principle": "All pattern manifestation begins with a singular disturbance event—the Big Splash—from which ripples emanate across dimensional and conceptual boundaries.",
+    
+    "key_concepts": [
+      {
+        "name": "Splash Event",
+        "definition": "The initial disturbance that triggers pattern propagation"
+      },
+      {
+        "name": "Ripple Propagation",
+        "definition": "The movement of pattern energy outward from the splash point"
+      },
+      {
+        "name": "Domain Intersection",
+        "definition": "Where ripples from different domains meet and create harmonic interference"
+      }
+    ],
+    
+    "mathematical_model": {
+      "equation": "P(r,t) = A * e^(-kt) * cos(ωt - kr)",
+      "variables": {
+        "P": "Pattern intensity",
+        "r": "Distance from splash center",
+        "t": "Time since splash",
+        "A": "Initial amplitude",
+        "k": "Decay constant",
+        "ω": "Angular frequency"
+      }
+    }
+  },
+  
+  "related_concepts": [
+    "Ripple Theory",
+    "URFT (Unified Ripple Field Theory)",
+    "Emotional Logic",
+    "Pattern Propagation"
+  ],
+  
+  "connections": {
+    "engines": ["ripple-sonar", "emotional-logic"],
+    "visualizers": ["harmonic-system-v3", "ripple-radar"],
+    "databases": ["nob-nodes", "tps-db"]
+  },
+  
+  "status": "active",
+  "tags": ["foundational", "theory", "ripple", "origin"]
+}

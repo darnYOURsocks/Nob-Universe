@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "database": "nob-nodes",
+    "version": "1.0",
+    "created": "2025-12-04",
+    "description": "NOB node reference database - core nodes in the NOB network"
+  },
+  
+  "nodes": [
+    {
+      "id": "node-001",
+      "name": "Origin Node",
+      "type": "anchor",
+      "layer": 0,
+      "coordinates": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      },
+      "connections": ["node-002", "node-003"],
+      "properties": {
+        "stability": 1.0,
+        "coherence": 1.0,
+        "resonance_frequency": 432
+      }
+    },
+    {
+      "id": "node-002",
+      "name": "Pattern Recognition Node",
+      "type": "processing",
+      "layer": 1,
+      "parent": "node-001",
+      "connections": ["node-004", "node-005"],
+      "properties": {
+        "stability": 0.95,
+        "coherence": 0.92,
+        "resonance_frequency": 528
+      }
+    },
+    {
+      "id": "node-003",
+      "name": "Emotional Integration Node",
+      "type": "processing",
+      "layer": 1,
+      "parent": "node-001",
+      "connections": ["node-006", "node-007"],
+      "properties": {
+        "stability": 0.88,
+        "coherence": 0.89,
+        "resonance_frequency": 639
+      }
+    }
+  ],
+  
+  "templates": {
+    "node_template": {
+      "id": "unique identifier",
+      "name": "descriptive name",
+      "type": "anchor|processing|output|storage",
+      "layer": "network depth",
+      "parent": "parent node id",
+      "connections": ["array of connected node ids"],
+      "properties": {
+        "stability": "0.0-1.0",
+        "coherence": "0.0-1.0",
+        "resonance_frequency": "Hz value"
+      }
+    }
+  },
+  
+  "statistics": {
+    "total_nodes": 3,
+    "anchor_nodes": 1,
+    "processing_nodes": 2,
+    "max_depth": 1
+  }
+}

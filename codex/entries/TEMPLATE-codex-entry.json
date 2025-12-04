@@ -1,0 +1,77 @@
+{
+  "entry_id": "TEMPLATE",
+  "title": "Template: New Codex Entry",
+  "category": "template",
+  "created": "2025-12-04",
+  "last_updated": "2025-12-04",
+  "author": "Your Name",
+  "version": "1.0",
+  
+  "abstract": "Brief 1-2 sentence description of this concept or system.",
+  
+  "description": "Longer explanation of the concept, its purpose, and significance within the ŊOB Universe.",
+  
+  "theory": {
+    "core_principle": "The foundational idea behind this entry",
+    
+    "key_concepts": [
+      {
+        "name": "Concept 1",
+        "definition": "What this concept means"
+      },
+      {
+        "name": "Concept 2",
+        "definition": "What this concept means"
+      }
+    ],
+    
+    "mathematical_model": {
+      "equation": "f(x) = ...",
+      "variables": {
+        "x": "Variable definition"
+      }
+    }
+  },
+  
+  "specification": {
+    "function": "What does this system do?",
+    "inputs": [
+      "Input 1",
+      "Input 2"
+    ],
+    "outputs": [
+      "Output 1",
+      "Output 2"
+    ]
+  },
+  
+  "algorithm": {
+    "steps": [
+      "Step 1",
+      "Step 2",
+      "Step 3"
+    ],
+    "complexity": "O(n log n)"
+  },
+  
+  "interfaces": {
+    "javascript": "path/to/code.js",
+    "python": "path/to/code.py",
+    "unity": "path/to/code.cs",
+    "unreal": "path/to/code.h"
+  },
+  
+  "related_concepts": [
+    "Other Codex Entry Title",
+    "Another Related Concept"
+  ],
+  
+  "connections": {
+    "engines": ["engine-name"],
+    "visualizers": ["visualizer-name"],
+    "databases": ["database-name"]
+  },
+  
+  "status": "active",
+  "tags": ["tag1", "tag2", "tag3"]
+}
