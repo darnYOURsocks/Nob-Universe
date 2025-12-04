@@ -49,6 +49,7 @@
     "unreal": "unreal/emotional-physics/"
   },
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Run tests here\"",
     "lint": "echo \"Lint code\"",
     "docs": "echo \"Generate documentation\"",
@@ -57,7 +58,7 @@
     "start-lab": "python python/ripple-lab/ripple-lab.py"
   },
   "dependencies": {
-    "none": "Core engines are vanilla JavaScript"
+    "express": "^4.19.2"
   },
   "devDependencies": {},
   "optionalDependencies": {

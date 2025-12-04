@@ -31,8 +31,12 @@
 
       <div id="experiments" class="page">
           <h1>Experiments</h1>
-          <button onclick="runExperiment('exp_001_attractors')">Run Experiment 001 (Attractors)</button>
-          <pre id="experiment-output"></pre>
+          <p class="muted">Select an experiment to run live using the shared engines.</p>
+          <div id="experiments-list" class="grid"></div>
+          <div class="card">
+            <h3>Experiment Output</h3>
+            <pre id="experiment-output">Choose an experiment to see the results.</pre>
+          </div>
       </div>
 
       <div id="visualizers" class="page">
@@ -47,7 +51,11 @@
 
       <div id="codex" class="page">
           <h1>Codex Browser</h1>
-          <div id="codex-list"></div>
+          <div id="codex-list" class="grid"></div>
+          <div class="card">
+            <h3>Entry Details</h3>
+            <pre id="codex-entry">Select an entry to inspect its content.</pre>
+          </div>
       </div>
 
       <div id="data" class="page">
@@ -60,4 +68,3 @@
 <script src="app.js"></script>
 </body>
 </html>
-
