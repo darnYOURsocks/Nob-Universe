@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>NŊOB Universe – Control Panel</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div id="sidebar">
+      <h2>NŊOB Universe</h2>
+      <button class="nav-btn" onclick="navigate('dashboard')">Dashboard</button>
+      <button class="nav-btn" onclick="navigate('experiments')">Experiments</button>
+      <button class="nav-btn" onclick="navigate('visualizers')">Visualizers</button>
+      <button class="nav-btn" onclick="navigate('codex')">Codex</button>
+      <button class="nav-btn" onclick="navigate('data')">Data Explorer</button>
+  </div>
+
+  <div id="content-area">
+      <div id="dashboard" class="page active">
+          <h1>Welcome to NŊOB Universe</h1>
+          <p>Your unified laboratory for Emotional Gravity, Ripple Sonar, TPS Dynamics, and Curvature Physics.</p>
+          <div class="grid">
+              <div class="card"> <h3>Experiments</h3> <p>Run attractor tests & binding models.</p></div>
+              <div class="card"> <h3>Visualizers</h3> <p>Curvature, Gravity Wells, Ripple Surfaces.</p></div>
+              <div class="card"> <h3>Codex</h3> <p>Browse all laws & engines.</p></div>
+              <div class="card"> <h3>Data</h3> <p>Inspect logs & time-series.</p></div>
+          </div>
+      </div>
+
+      <div id="experiments" class="page">
+          <h1>Experiments</h1>
+          <button onclick="runExperiment('exp_001_attractors')">Run Experiment 001 (Attractors)</button>
+          <pre id="experiment-output"></pre>
+      </div>
+
+      <div id="visualizers" class="page">
+          <h1>Visualizers</h1>
+          <a class="vis-link" href="/visualizers/curvature-engine/index.html" target="_blank">
+              Curvature Engine
+          </a>
+          <a class="vis-link" href="/visualizers/emotional-gravity-well/index.html" target="_blank">
+              Emotional Gravity Well
+          </a>
+      </div>
+
+      <div id="codex" class="page">
+          <h1>Codex Browser</h1>
+          <div id="codex-list"></div>
+      </div>
+
+      <div id="data" class="page">
+          <h1>Data Explorer</h1>
+          <input type="file" id="csv-input" accept=".csv"/>
+          <pre id="csv-output"></pre>
+      </div>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
+
