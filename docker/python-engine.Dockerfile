@@ -5,8 +5,9 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
 COPY python-engine/pyproject.toml ./
+COPY python-engine/setup.py ./
 COPY python-engine/app ./app
 RUN pip install --no-cache-dir .
 
