@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "python-engine"
+version = "0.1.0"
+description = "Nob-Universe Phase 1 Python FastAPI engine"
+authors = [
+  { name = "Nob-Universe" }
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi==0.104.1",
+  "uvicorn==0.24.0",
+  "pydantic==2.5.0"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]

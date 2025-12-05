@@ -1,0 +1,66 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: nob-postgres
+    environment:
+      POSTGRES_USER: nob
+      POSTGRES_PASSWORD: nob_password
+      POSTGRES_DB: nob_universe
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nob"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api-server:
+    build:
+      context: .
+      dockerfile: docker/api-server.Dockerfile
+    command: ["npm", "run", "start"]
+    environment:
+      PORT: 4000
+      DATABASE_URL: ${DATABASE_URL:-postgres://nob:nob_password@postgres:5432/nob_universe}
+      PYTHON_ENGINE_URL: ${PYTHON_ENGINE_URL:-http://python-engine:8000}
+    env_file:
+      - .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+      python-engine:
+        condition: service_started
+    ports:
+      - "4000:4000"
+
+  python-engine:
+    build:
+      context: .
+      dockerfile: docker/python-engine.Dockerfile
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    environment:
+      PORT: 8000
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+
+  web-demo:
+    build:
+      context: .
+      dockerfile: docker/web-demo.Dockerfile
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0", "--port", "5173"]
+    environment:
+      VITE_API_BASE_URL: http://api-server:4000
+    depends_on:
+      - api-server
+    ports:
+      - "5173:5173"
+
+volumes:
+  db-data:

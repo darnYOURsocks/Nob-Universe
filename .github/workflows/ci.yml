@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: |
+            api-server/package-lock.json
+            web-demo/package-lock.json
+
+      - name: Install API server dependencies
+        working-directory: api-server
+        run: npm install
+
+      - name: Build API server
+        working-directory: api-server
+        run: npm run build
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python engine dependencies
+        working-directory: python-engine
+        run: pip install .
+
+      - name: Run Python import check
+        working-directory: python-engine
+        run: python - <<'PY'
+import importlib
+import sys
+
+for module in ("fastapi", "uvicorn", "pydantic", "app.main"):
+    importlib.import_module(module)
+    sys.stdout.write(f"Imported {module}\n")
+PY
+
+      - name: Install web demo dependencies
+        working-directory: web-demo
+        run: npm install
+
+      - name: Build web demo
+        working-directory: web-demo
+        run: npm run build
