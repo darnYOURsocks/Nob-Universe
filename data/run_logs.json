@@ -1,0 +1,604 @@
+{
+  "trajectory": [
+    {
+      "step": 0,
+      "lambda": 0.9340900964700976,
+      "delta": 4.0,
+      "psi": 0.711940141539463,
+      "label": "SU-TI",
+      "stability": 0.711940141539463,
+      "synchrony": 0.9340900964700976,
+      "structural_metrics": {
+        "avg_degree": 1.4285714285714286,
+        "clustering": 0.0,
+        "edge_count": 5.0,
+        "node_count": 7.0
+      }
+    },
+    {
+      "step": 1,
+      "lambda": 0.9999873938536108,
+      "delta": 1.0,
+      "psi": 0.06232269282704854,
+      "label": "SU-TI",
+      "stability": 0.06232269282704854,
+      "synchrony": 0.9999873938536108,
+      "structural_metrics": {
+        "avg_degree": 1.25,
+        "clustering": 0.0,
+        "edge_count": 5.0,
+        "node_count": 8.0
+      }
+    },
+    {
+      "step": 2,
+      "lambda": 0.999999965162912,
+      "delta": 2.0,
+      "psi": 3.408980285992203e-19,
+      "label": "SU-TI",
+      "stability": 3.408980285992203e-19,
+      "synchrony": 0.999999965162912,
+      "structural_metrics": {
+        "avg_degree": 1.3333333333333333,
+        "clustering": 0.0,
+        "edge_count": 6.0,
+        "node_count": 9.0
+      }
+    },
+    {
+      "step": 3,
+      "lambda": 0.9999999996926022,
+      "delta": 2.0,
+      "psi": 4.218022914114078e-283,
+      "label": "SU-TI",
+      "stability": 4.218022914114078e-283,
+      "synchrony": 0.9999999996926022,
+      "structural_metrics": {
+        "avg_degree": 1.4,
+        "clustering": 0.0,
+        "edge_count": 7.0,
+        "node_count": 10.0
+      }
+    },
+    {
+      "step": 4,
+      "lambda": 0.9999999999993523,
+      "delta": 5.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 0.9999999999993523,
+      "structural_metrics": {
+        "avg_degree": 1.3846153846153846,
+        "clustering": 0.0,
+        "edge_count": 9.0,
+        "node_count": 13.0
+      }
+    },
+    {
+      "step": 5,
+      "lambda": 0.999999999999996,
+      "delta": 5.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 0.999999999999996,
+      "structural_metrics": {
+        "avg_degree": 0.875,
+        "clustering": 0.0,
+        "edge_count": 7.0,
+        "node_count": 16.0
+      }
+    },
+    {
+      "step": 6,
+      "lambda": 1.0,
+      "delta": 0.0,
+      "psi": 0.0,
+      "label": "SU-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.875,
+        "clustering": 0.0,
+        "edge_count": 7.0,
+        "node_count": 16.0
+      }
+    },
+    {
+      "step": 7,
+      "lambda": 1.0,
+      "delta": 3.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.6666666666666666,
+        "clustering": 0.0,
+        "edge_count": 6.0,
+        "node_count": 18.0
+      }
+    },
+    {
+      "step": 8,
+      "lambda": 1.0,
+      "delta": 1.0,
+      "psi": 0.0,
+      "label": "SU-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.631578947368421,
+        "clustering": 0.0,
+        "edge_count": 6.0,
+        "node_count": 19.0
+      }
+    },
+    {
+      "step": 9,
+      "lambda": 1.0,
+      "delta": 4.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.6363636363636364,
+        "clustering": 0.0,
+        "edge_count": 7.0,
+        "node_count": 22.0
+      }
+    },
+    {
+      "step": 10,
+      "lambda": 1.0,
+      "delta": 1.0,
+      "psi": 0.0,
+      "label": "SU-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.6086956521739131,
+        "clustering": 0.0,
+        "edge_count": 7.0,
+        "node_count": 23.0
+      }
+    },
+    {
+      "step": 11,
+      "lambda": 1.0,
+      "delta": 4.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.72,
+        "clustering": 0.0,
+        "edge_count": 9.0,
+        "node_count": 25.0
+      }
+    },
+    {
+      "step": 12,
+      "lambda": 1.0,
+      "delta": 3.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.7407407407407407,
+        "clustering": 0.0,
+        "edge_count": 10.0,
+        "node_count": 27.0
+      }
+    },
+    {
+      "step": 13,
+      "lambda": 1.0,
+      "delta": 2.0,
+      "psi": 0.0,
+      "label": "SU-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.6896551724137931,
+        "clustering": 0.0,
+        "edge_count": 10.0,
+        "node_count": 29.0
+      }
+    },
+    {
+      "step": 14,
+      "lambda": 1.0,
+      "delta": 1.0,
+      "psi": 0.0,
+      "label": "SU-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.6666666666666666,
+        "clustering": 0.0,
+        "edge_count": 10.0,
+        "node_count": 30.0
+      }
+    },
+    {
+      "step": 15,
+      "lambda": 1.0,
+      "delta": 2.0,
+      "psi": 0.0,
+      "label": "SU-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.5333333333333333,
+        "clustering": 0.0,
+        "edge_count": 8.0,
+        "node_count": 30.0
+      }
+    },
+    {
+      "step": 16,
+      "lambda": 1.0,
+      "delta": 5.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.5294117647058824,
+        "clustering": 0.0,
+        "edge_count": 9.0,
+        "node_count": 34.0
+      }
+    },
+    {
+      "step": 17,
+      "lambda": 1.0,
+      "delta": 1.0,
+      "psi": 0.0,
+      "label": "SU-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.5142857142857142,
+        "clustering": 0.0,
+        "edge_count": 9.0,
+        "node_count": 35.0
+      }
+    },
+    {
+      "step": 18,
+      "lambda": 1.0,
+      "delta": 2.0,
+      "psi": 0.0,
+      "label": "SU-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.4444444444444444,
+        "clustering": 0.0,
+        "edge_count": 8.0,
+        "node_count": 36.0
+      }
+    },
+    {
+      "step": 19,
+      "lambda": 1.0,
+      "delta": 3.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.41025641025641024,
+        "clustering": 0.0,
+        "edge_count": 8.0,
+        "node_count": 39.0
+      }
+    },
+    {
+      "step": 20,
+      "lambda": 1.0,
+      "delta": 5.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.4186046511627907,
+        "clustering": 0.0,
+        "edge_count": 9.0,
+        "node_count": 43.0
+      }
+    },
+    {
+      "step": 21,
+      "lambda": 1.0,
+      "delta": 0.0,
+      "psi": 0.0,
+      "label": "SU-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.4186046511627907,
+        "clustering": 0.0,
+        "edge_count": 9.0,
+        "node_count": 43.0
+      }
+    },
+    {
+      "step": 22,
+      "lambda": 1.0,
+      "delta": 3.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.4444444444444444,
+        "clustering": 0.0,
+        "edge_count": 10.0,
+        "node_count": 45.0
+      }
+    },
+    {
+      "step": 23,
+      "lambda": 1.0,
+      "delta": 4.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.5106382978723404,
+        "clustering": 0.0,
+        "edge_count": 12.0,
+        "node_count": 47.0
+      }
+    },
+    {
+      "step": 24,
+      "lambda": 1.0,
+      "delta": 5.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.5098039215686274,
+        "clustering": 0.0,
+        "edge_count": 13.0,
+        "node_count": 51.0
+      }
+    },
+    {
+      "step": 25,
+      "lambda": 1.0,
+      "delta": 4.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.5660377358490566,
+        "clustering": 0.0,
+        "edge_count": 15.0,
+        "node_count": 53.0
+      }
+    },
+    {
+      "step": 26,
+      "lambda": 1.0,
+      "delta": 6.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.5517241379310345,
+        "clustering": 0.0,
+        "edge_count": 16.0,
+        "node_count": 58.0
+      }
+    },
+    {
+      "step": 27,
+      "lambda": 1.0,
+      "delta": 7.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.53125,
+        "clustering": 0.0,
+        "edge_count": 17.0,
+        "node_count": 64.0
+      }
+    },
+    {
+      "step": 28,
+      "lambda": 1.0,
+      "delta": 7.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.5507246376811594,
+        "clustering": 0.0,
+        "edge_count": 19.0,
+        "node_count": 69.0
+      }
+    },
+    {
+      "step": 29,
+      "lambda": 1.0,
+      "delta": 4.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.5205479452054794,
+        "clustering": 0.0,
+        "edge_count": 19.0,
+        "node_count": 73.0
+      }
+    },
+    {
+      "step": 30,
+      "lambda": 1.0,
+      "delta": 5.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.48717948717948717,
+        "clustering": 0.0,
+        "edge_count": 19.0,
+        "node_count": 78.0
+      }
+    },
+    {
+      "step": 31,
+      "lambda": 1.0,
+      "delta": 2.0,
+      "psi": 0.0,
+      "label": "SU-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.4358974358974359,
+        "clustering": 0.0,
+        "edge_count": 17.0,
+        "node_count": 78.0
+      }
+    },
+    {
+      "step": 32,
+      "lambda": 1.0,
+      "delta": 5.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.3902439024390244,
+        "clustering": 0.0,
+        "edge_count": 16.0,
+        "node_count": 82.0
+      }
+    },
+    {
+      "step": 33,
+      "lambda": 1.0,
+      "delta": 2.0,
+      "psi": 0.0,
+      "label": "SU-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.38095238095238093,
+        "clustering": 0.0,
+        "edge_count": 16.0,
+        "node_count": 84.0
+      }
+    },
+    {
+      "step": 34,
+      "lambda": 1.0,
+      "delta": 4.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.32558139534883723,
+        "clustering": 0.0,
+        "edge_count": 14.0,
+        "node_count": 86.0
+      }
+    },
+    {
+      "step": 35,
+      "lambda": 1.0,
+      "delta": 4.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.29213483146067415,
+        "clustering": 0.0,
+        "edge_count": 13.0,
+        "node_count": 89.0
+      }
+    },
+    {
+      "step": 36,
+      "lambda": 1.0,
+      "delta": 3.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.26373626373626374,
+        "clustering": 0.0,
+        "edge_count": 12.0,
+        "node_count": 91.0
+      }
+    },
+    {
+      "step": 37,
+      "lambda": 1.0,
+      "delta": 2.0,
+      "psi": 0.0,
+      "label": "SU-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.25806451612903225,
+        "clustering": 0.0,
+        "edge_count": 12.0,
+        "node_count": 93.0
+      }
+    },
+    {
+      "step": 38,
+      "lambda": 1.0,
+      "delta": 4.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.2708333333333333,
+        "clustering": 0.0,
+        "edge_count": 13.0,
+        "node_count": 96.0
+      }
+    },
+    {
+      "step": 39,
+      "lambda": 1.0,
+      "delta": 4.0,
+      "psi": 0.0,
+      "label": "ME-TI",
+      "stability": 0.0,
+      "synchrony": 1.0,
+      "structural_metrics": {
+        "avg_degree": 0.2828282828282828,
+        "clustering": 0.0,
+        "edge_count": 14.0,
+        "node_count": 99.0
+      }
+    }
+  ]
+}

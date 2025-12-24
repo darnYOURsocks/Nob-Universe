@@ -1,0 +1,22 @@
+{
+  "seed": 7,
+  "neural": {
+    "size": 32,
+    "timesteps": 60,
+    "leak": 0.05,
+    "noise": 0.02,
+    "recurrent_scale": 1.0
+  },
+  "structural": {
+    "moisture": 0.6,
+    "nutrients": 0.55,
+    "light": 0.7,
+    "micro_shock": 0.05,
+    "rewire_prob": 0.15
+  },
+  "simulation": {
+    "steps": 40,
+    "input_scale": 0.6,
+    "input_drift": 0.15
+  }
+}
