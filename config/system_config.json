@@ -1,0 +1,22 @@
+{
+  "neural": {
+    "size": 48,
+    "dt": 0.05,
+    "noise_std": 0.01,
+    "baseline_connectivity_strength": 1.2,
+    "structural_influence": 0.25
+  },
+  "structural": {
+    "moisture": 0.5,
+    "nutrients": 0.5,
+    "light": 0.5,
+    "micro_shock": 0.1,
+    "branch_threshold": 6.5,
+    "fusion_threshold": 2.0
+  },
+  "simulation": {
+    "timesteps": 40,
+    "runs": 30,
+    "seed": 7
+  }
+}

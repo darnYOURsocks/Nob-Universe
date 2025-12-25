@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>λ-Δ-ψ Trajectory</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 1rem; background: #0b0c10; color: #f3f7ff; }
+    #canvas { border: 1px solid #2c3e50; background: #0f172a; }
+    #controls { margin-top: 0.5rem; }
+    label { margin-right: 0.5rem; }
+  </style>
+</head>
+<body>
+  <h2>λ-Δ-ψ Trajectory Explorer</h2>
+  <p>Static, dependency-free 3D projection. Adjust the slider to walk the time course of symbolic transitions.</p>
+  <canvas id="canvas" width="800" height="500"></canvas>
+  <div id="controls">
+    <label for="step">Time step:</label>
+    <input type="range" id="step" min="0" max="0" value="0" />
+    <span id="label"></span>
+  </div>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const stepInput = document.getElementById('step');
+    const labelSpan = document.getElementById('label');
+    const colors = {
+      'SU-TI': '#f94144',
+      'ME-TI': '#f3722c',
+      'ME-ME': '#f9c74f',
+      'FRAG-Δ': '#90be6d',
+      'THE_ONE': '#43aa8b',
+      'THE_MANY': '#4d908e',
+      'COH-REBUILD': '#577590'
+    };
+
+    const project = (point) => {
+      const scale = 140;
+      const angle = 0.7;
+      const x = point.lambda - 0.5;
+      const y = point.delta - 0.5;
+      const z = point.psi - 0.5;
+      const xRot = x * Math.cos(angle) - z * Math.sin(angle);
+      const zRot = x * Math.sin(angle) + z * Math.cos(angle);
+      const depth = 1 / (1.2 + zRot);
+      return {
+        x: canvas.width / 2 + scale * xRot * depth,
+        y: canvas.height / 2 - scale * y * depth,
+        size: 6 * depth
+      };
+    };
+
+    const draw = (data, step) => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#0f172a';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      const subset = data.slice(0, step + 1);
+      subset.forEach((p, idx) => {
+        const proj = project(p);
+        ctx.beginPath();
+        ctx.fillStyle = colors[p.label] || '#ffffff';
+        ctx.globalAlpha = idx === subset.length - 1 ? 1 : 0.55;
+        ctx.arc(proj.x, proj.y, Math.max(2, proj.size), 0, Math.PI * 2);
+        ctx.fill();
+      });
+      const current = subset[subset.length - 1];
+      labelSpan.textContent = `${current.label} | λ=${current.lambda.toFixed(3)} Δ=${current.delta.toFixed(3)} ψ=${current.psi.toFixed(3)}`;
+    };
+
+    fetch('../data/run_logs.json')
+      .then(resp => resp.json())
+      .then(data => {
+        const normalized = data.map(p => ({
+          lambda: p.lambda,
+          delta: p.delta,
+          psi: p.psi,
+          label: p.label
+        }));
+        stepInput.max = Math.max(0, normalized.length - 1);
+        stepInput.addEventListener('input', () => draw(normalized, parseInt(stepInput.value, 10)));
+        draw(normalized, 0);
+      })
+      .catch(err => {
+        ctx.fillStyle = '#f94144';
+        ctx.fillText('Failed to load run_logs.json: ' + err, 10, 20);
+      });
+  </script>
+</body>
+</html>
